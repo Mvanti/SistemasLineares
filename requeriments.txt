@@ -1,7 +1,8 @@
-numpy
-
-sympy
-   
-pandas
-
-lcapy
+dependencies:
+  - python>3.10
+  - sympy
+  - numpy
+  - pandas
+  - lcapy
+  - notebook
+  - matplotlib
