@@ -11,7 +11,9 @@ Opcionalmente, os notebooks podem ser quase integralmente executados remotamente
 exemplo: 
 
 '!pip install lcapy'
+
  from lcapy import *
+ 
  etc..
 
 
