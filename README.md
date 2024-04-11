@@ -10,7 +10,7 @@ Para executar em seu próprio computador, um sistema python científico deve ser
 Opcionalmente, os notebooks podem ser quase integralmente executados remotamente em serviços com o Binder (https://mybinder.org/). A maneira mais fácil de fazer isto é a partir da renderização de um notebook em nbviewer fazer a ligação direta com o Binder, disponível no alto da página. É necessário apenas incluir o comando de instalação de bibliotecas não encontradas, antes de sua importação. 
 exemplo: 
 
-'!pip install lcapy'
+!pip install lcapy
 
  from lcapy import *
  
