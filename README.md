@@ -8,7 +8,8 @@ Os notebooks podem ser renderizados aqui ou em nbviewer.org (https://nbviewer.or
 Para executar em seu próprio computador, um sistema python científico deve ser instalado. Normalmente numpy, sympy, matplotlib, pandas, etc já vem previamente instalados nesses sistemas. Recomendo o uso de WinPython (https://winpython.github.io/). Para renderização das equações utilizadas no texto, o computador necessitará ter LateX instalado. MiKTeX  (https://miktex.org/) é uma distribuição que funciona muito bem em Windows e fará a renderização das equações de forma transparente.
 
 Opcionalmente, os notebooks podem ser quase integralmente executados remotamente em serviços com o Binder (https://mybinder.org/). A maneira mais fácil de fazer isto é a partir da renderização de um notebook em nbviewer fazer a ligação direta com o Binder, disponível no alto da página. É necessário apenas incluir o comando de instalação de bibliotecas não encontradas, antes de sua importação. 
-exemplo: 
+
+Exemplo: 
 
 !pip install lcapy
 
