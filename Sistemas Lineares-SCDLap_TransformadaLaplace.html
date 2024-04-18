@@ -14592,14 +14592,16 @@ $$f_s(t)=e^{-\sigma t}f(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}F(s)e^{j\omega t
 \begin{equation*}
 f(t)=\mathcal{L}^{-1}(F(s))=\frac{1}{j2\pi}\int_{\sigma-j\infty}^{\sigma+j\infty}F(s)e^{st}\,ds.
 \label{}\tag{2}
-\end{equation*}<p>A equação (1) é a transformada de Laplace bilateral. Para sistemas causais, $f(t)=0\;\mbox{para}\;t&lt; 0$, daí o limite inferior agora é $^-$, e portanto,</p>
+\end{equation*}<p>A equação (1) é a transformada de Laplace bilateral. Para sistemas causais, $f(t)=0\;\mbox{para}\;t&lt; 0$, daí o limite inferior agora é $0^-$, e portanto,</p>
 \begin{equation*}
 F(s)=\mathcal{L}(f(t))=\int_{0^-}^{\infty}f(t)e^{-st}\,dt
 \label{}\tag{3}
 \end{equation*}<p>a qual é a transformada de Laplace unilateral.</p>
 <p><strong>Exemplo</strong> Seja $f(t)=\delta(t)$. A transformada do impulso é</p>
 $$\int_{0^-}^{\infty} \delta(t) e^{-st}\,dt= 1$$<p>usando a priopriedade da amostragem do impulso. Portanto, temos o par de transformadas</p>
-$$ \delta(t) \Leftrightarrow 1.$$<p><strong>Exemplo</strong> Transformadas de outras funções básicas.
+$$ \delta(t) \Leftrightarrow 1.$$<p><strong>Exemplo</strong> Seja a função exponencial $e^{-at}$. A Transformada de Laplace de $e^{-at}u(t)$ é</p>
+$$\mathcal{L}(e^{-at}u(t))=\int_{0^-}^{\infty} e^{-at}e^{-st}\,dt=\int_{0^-}^{\infty} e^{-(s+a)}t\,dt=\frac{1}{s+a}$$<p>O par transformado é</p>
+$$e^{-at}\Leftrightarrow \frac{1}{s+a}$$<p><strong>Exemplo</strong> Transformadas de outras funções básicas.
 Usaremos agora a biblioteca simbólica SymPy para fazer uma tabela de transformadas básicas: inicialmente definimos um lista básica de funções.</p>
 
 </div>
@@ -14613,7 +14615,8 @@ Usaremos agora a biblioteca simbólica SymPy para fazer uma tabela de transforma
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="ch">#!pip install sympy</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
 <span class="n">sp</span><span class="o">.</span><span class="n">init_printing</span><span class="p">()</span>
 
 <span class="n">t</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;t, s&#39;</span><span class="p">)</span>
@@ -14628,8 +14631,7 @@ Usaremos agora a biblioteca simbólica SymPy para fazer uma tabela de transforma
          <span class="n">t</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="p">),</span>
          <span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="p">),</span>
          <span class="n">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">),</span>
-         <span class="n">cos</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">),</span>
-         <span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">t</span><span class="p">),</span>
+         <span class="n">cos</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
          <span class="p">]</span>
 <span class="n">functions</span>
 </pre></div>
@@ -14655,7 +14657,7 @@ Usaremos agora a biblioteca simbólica SymPy para fazer uma tabela de transforma
 
 
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex">
-$\displaystyle \left[ 1, \  t, \  e^{- a t}, \  t e^{- a t}, \  t^{2} e^{- a t}, \  \sin{\left(\omega t \right)}, \  \cos{\left(\omega t \right)}, \  1 - e^{- a t}\right]$
+$\displaystyle \left[ 1, \  t, \  e^{- a t}, \  t e^{- a t}, \  t^{2} e^{- a t}, \  \sin{\left(\omega t \right)}, \  \cos{\left(\omega t \right)}\right]$
 </div>
 
 </div>
@@ -14726,7 +14728,7 @@ $\displaystyle \left[ 1, \  t, \  e^{- a t}, \  t e^{- a t}, \  t^{2} e^{- a t},
 
 
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex">
-$\displaystyle \left[ \frac{1}{s}, \  \frac{1}{s^{2}}, \  \frac{1}{a + s}, \  \frac{1}{\left(a + s\right)^{2}}, \  \frac{2}{\left(a + s\right)^{3}}, \  \frac{\omega}{\omega^{2} + s^{2}}, \  \frac{s}{\omega^{2} + s^{2}}, \  \frac{a}{s \left(a + s\right)}\right]$
+$\displaystyle \left[ \frac{1}{s}, \  \frac{1}{s^{2}}, \  \frac{1}{a + s}, \  \frac{1}{\left(a + s\right)^{2}}, \  \frac{2}{\left(a + s\right)^{3}}, \  \frac{\omega}{\omega^{2} + s^{2}}, \  \frac{s}{\omega^{2} + s^{2}}\right]$
 </div>
 
 </div>
@@ -14743,7 +14745,8 @@ $\displaystyle \left[ \frac{1}{s}, \  \frac{1}{s^{2}}, \  \frac{1}{a + s}, \  \f
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="ch">#!pip install pandas</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
 </pre></div>
 
      </div>
@@ -14857,11 +14860,6 @@ $\displaystyle \left[ \frac{1}{s}, \  \frac{1}{s^{2}}, \  \frac{1}{a + s}, \  \f
       <td>$$\cos{\left(\omega t \right)}$$</td>
       <td>$$\frac{s}{\omega^{2} + s^{2}}$$</td>
     </tr>
-    <tr>
-      <th>7</th>
-      <td>$$1 - e^{- a t}$$</td>
-      <td>$$\frac{a}{s \left(a + s\right)}$$</td>
-    </tr>
   </tbody>
 </table>
 </div>
@@ -14881,7 +14879,7 @@ $\displaystyle \left[ \frac{1}{s}, \  \frac{1}{s^{2}}, \  \frac{1}{a + s}, \  \f
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="A-transformada-da-derivada">A transformada da derivada<a class="anchor-link" href="#A-transformada-da-derivada">&#182;</a></h3>$$\mathcal{L}(f'(t) u(t))=\int_{0^-}^{\infty}f'(t)e^{-st}\,dt$$<p>Integrando por partes, temos</p>
-$$\mathcal{L}(f'(t) u(t))=f(t)e^{-st}\bigg\|_{0^-}^{\infty}+\int_{0^-}^{\infty} f(t)e^{-st}\,dt$$<p>O primeiro termo do lado direito é $-f(0^-)$, e a integral é simplesmente a transformada de $f(t)$, ou seja, $F(s)$, e portanto</p>
+$$\mathcal{L}(f'(t) u(t))=f(t)e^{-st}\bigg|_{0^-}^{\infty}+s\int_{0^-}^{\infty} f(t)e^{-st}\,dt$$<p>O primeiro termo do lado direito é $-f(0^-)$, e a integral é simplesmente a transformada de $f(t)$, ou seja, $F(s)$, e portanto</p>
 $$\mathcal{L}(f'(t) u(t))= sF(s)-f(0^-)$$<p>analogamente,</p>
 $$\mathcal{L}(f''(t) u(t))= s^2F(s)-sf(0^-)-f'(0^-)$$<p>e</p>
 $$\mathcal{L}(f'''(t) u(t))=s^3F(s)-s^2f(0^-)-sf'(0^-)-f''(0^-)$$<p>e assim, sucessivamente.</p>
@@ -14891,26 +14889,26 @@ $$\mathcal{L}\left(\left\{\int_{0^-}^{t} f(\tau)\,d\tau u(t)\right\}\right)=\fra
 <p><strong>a) polos distintos.</strong></p>
 <p>Seja $F(s)=\frac{7s-6}{s^2-s-6}=\frac{7s-6}{(s-2)(s+3)}$. Podemos expandir $F(s)$ como</p>
 $$F(s)=\frac{7s-6}{(s-2)(s+3)}=\frac{A_1}{s-2}+\frac{A_2}{s+3}.$$<p>Para encontrar $A_1$, simplesmente multiplicamos a equação acima por $s-2$, e depois fazemos $s=2$ na equação resultante, isso é</p>
-$$(s-2)F(s)=\frac{7s-6}{s+3}=A_1+A_2\frac{s-2}{s+3}$$$$A_1=\frac{7s-6}{s+3}\bigg\|_{s=2}=\frac{8}{5}$$<p>Analogamente, para $A_2$ temos</p>
-$$A_2=(s+3)F(s)=\frac{7s-6}{s-2}\bigg\|_{s=-3}=\frac{27}{5}.$$<p>Portanto, $F(s)=\frac{8}{5(s-2)}+\frac{27}{5(s+3)}$, e daí, consultando os pares de transformada podemos encontrar $f(t)$:</p>
+$$(s-2)F(s)=\frac{7s-6}{s+3}=A_1+A_2\frac{s-2}{s+3}$$$$A_1=\frac{7s-6}{s+3}\bigg|_{s=2}=\frac{8}{5}$$<p>Analogamente, para $A_2$ temos</p>
+$$A_2=(s+3)F(s)=\frac{7s-6}{s-2}\bigg|_{s=-3}=\frac{27}{5}.$$<p>Portanto, $F(s)=\frac{8}{5(s-2)}+\frac{27}{5(s+3)}$, e daí, consultando os pares de transformada podemos encontrar $f(t)$:</p>
 $$f(t)=\left(\frac{8}{5}e^{2t}+\frac{27}{5}e^{-3t}\right)u(t).$$<p><strong>b)polos repetidos</strong></p>
 <p>seja agora $F(s)=\frac{3s-1}{s(s-1)^3}$. Como antes expandimos em frações parciais como segue:</p>
 \begin{equation*}
-F(s)=\frac{3s-1}{s(s-1)^3}=\frac{A_1}{s}+\frac{B_1}{(s-1)^3}+\frac{B_2}{(s-2)^2}+\frac{B_3}{s-1}.
+F(s)=\frac{3s-1}{s(s-1)^3}=\frac{A_1}{s}+\frac{B_1}{(s-1)^3}+\frac{B_2}{(s-1)^2}+\frac{B_3}{s-1}.
 \label{}\tag{4}
-\end{equation*}<p>para encontrar $A_1$, fazemos com o anteriormente, isto é:</p>
-$$A_1=sF(s)=\frac{3s-1}{(s-1)^3}\bigg\|_{s=0}=1.$$<p>Já para determinação dos $B_i$s, começamos por multiplicar a equação (4) por $(s-1)^3$</p>
+\end{equation*}<p>para encontrar $A_1$, fazemos como anteriormente, isto é:</p>
+$$A_1=sF(s)=\frac{3s-1}{(s-1)^3}\bigg|_{s=0}=1.$$<p>Já para determinação dos $B_i$s, começamos por multiplicar a equação (4) por $(s-1)^3$</p>
 \begin{equation*}
 \frac{3s-1}{s}=(s-1)^3\frac{A_1}{s}+B_1+B_2(s-1)+B_3(s-1)^2,
 \label{}\tag{5}
 \end{equation*}<p>e $B_1$  é obtido como:</p>
-$$B_1=\frac{3s-1}{s}\bigg\|_{s=1}=2.$$<p>Para determinação de $B_2$, diferenciamos (5) em função de <em>s</em>,</p>
+$$B_1=\frac{3s-1}{s}\bigg|_{s=1}=2.$$<p>Para determinação de $B_2$, diferenciamos (5) em função de <em>s</em>,</p>
 \begin{equation*}
 \frac{d}{ds}\left(\frac{3s-1}{s}\right)=\frac{1}{s^2}=B_2+2(s-1)B_3+\frac{d}{ds}\left((s-1)^3\frac{A_1}{s}\right),
 \tag{6}
-\end{equation*}<p>de onde obtemos $B_2$  como</p>
-$$B_2=\frac{1}{s^2}\bigg\|_{s=1}=1.$$<p>Finalmente, diferenciamos novamente (6) para encontrar $B_3$.</p>
-$$\frac{d}{ds}\left(\frac{1}{s^2}\right)=\frac{-2}{s^3}\bigg\|_{s=1}=-1,$$$$F(s)=\frac{1}{s}+\frac{2}{(s-1)^3}+\frac{1}{(s-1)^2}-\frac{1}{s-1}.$$<p>Com os pares 0,2,3 e 4 da tabela, encontramos $f(t)$:</p>
+\end{equation*}<p>e fazendo $s=1$ obtemos $B_2$  como</p>
+$$B_2=\frac{1}{s^2}\bigg|_{s=1}=1.$$<p>Finalmente, diferenciamos novamente (6) para encontrar $B_3$.</p>
+$$\frac{d}{ds}\left(\frac{1}{s^2}\right)=\frac{-2}{s^3}=2B_3\rightarrow B_3=\frac{-1}{s^3}\bigg|_{s=1}=-1,$$$$F(s)=\frac{1}{s}+\frac{2}{(s-1)^3}+\frac{1}{(s-1)^2}-\frac{1}{s-1}.$$<p>Com os pares 0,2,3 e 4 da tabela, encontramos $f(t)$:</p>
 $$f(t)=(1+t^2e^{t}+te^{t}+e^t)u(t)$$<h3 id="Propriedade-do-deslocamento-no-tempo:">Propriedade do deslocamento no tempo:<a class="anchor-link" href="#Propriedade-do-deslocamento-no-tempo:">&#182;</a></h3><p>Considere o para transformado $f(t) \rightarrow F(s) $. A transformada de $f(t-t_0)$ é encontrada por simples substituição $t'=t-t_0$:</p>
 $$\mathcal{L}(f(t-t_0))=\int_{0^-}^{\infty}f(t-t_0)e^{-st}\,dt=\int_{0^-}^{\infty}f(t')e^{-s(t'+t_0)}\,dt'=e^{-st_o}\int_{0^-}^{\infty}f(t')e^{-st'}\,dt'=e^{-st_0}F(s).$$<h3 id="Propriedade-do-deslocamento-na-frequ%C3%AAncia:">Propriedade do deslocamento na frequ&#234;ncia:<a class="anchor-link" href="#Propriedade-do-deslocamento-na-frequ%C3%AAncia:">&#182;</a></h3><p>para uma dada função $f(t)$ com transformada $F(s)$, a transformada de $e^{at}f(t)$ é</p>
 $$\mathcal{L}(e^{at}F(s))=\int_{0^-}^{\infty}f(t)e^{at}e^{-st}\,dt=\int_{0^-}^{\infty}f(t)e^{-(s-a)t}\,dt=F(s-a)$$
@@ -14926,14 +14924,14 @@ $$\mathcal{L}(e^{at}F(s))=\int_{0^-}^{\infty}f(t)e^{at}e^{-st}\,dt=\int_{0^-}^{\
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Aplica%C3%A7%C3%A3o-%C3%A0-An%C3%A1lise-de-Sistemas">Aplica&#231;&#227;o &#224; An&#225;lise de Sistemas<a class="anchor-link" href="#Aplica%C3%A7%C3%A3o-%C3%A0-An%C3%A1lise-de-Sistemas">&#182;</a></h3><p><strong>Exemplo</strong> Seja o sistema representado pela equação $(D^2+5D+6)y(t)=(D+1)x(t)$, com as condições iniciais $y(0^-)=2$ e $y'(0^-)=1$, alimentado pela entrada $x(t)=e^{-4t}u(t)$.</p>
 <p>Iniciamos fazendo a transformada da equação diferencial usando a propriedade da transformada das derivadas, e inserido as condições iniciais, isto é:</p>
-$$s^2Y(s)-sy(0^-)-y'(0^-)+5sY(s)-5y(0^-)+6Y(s)=(s+1)X(s),$$<p>onde $Y(s)=\mathcal{L}(y(t))$ e $\mathcal{L}(x(t))=X(s)=\frac{1}{s+4)}$. Assim,</p>
+$$s^2Y(s)-sy(0^-)-y'(0^-)+5sY(s)-5y(0^-)+6Y(s)=(s+1)X(s),$$<p>onde $Y(s)=\mathcal{L}(y(t))$ e $\mathcal{L}(x(t))=X(s)=\frac{1}{s+4}$. Assim,</p>
 $$(s^2+5s+6)Y(s)=(s+1)X(s)+2s+11$$<p>podemos escrever a equação acima como</p>
 $$Q(s)Y(s)=P(s)X(s)+2s+11.$$<p>E a resposta no domínio de Laplace, $Y(s)$, é dada por</p>
-$$Y(s)=\frac{P(s)}{Q(s)}X(s)+\frac{2s+11}{P(s)}.$$<p>$2s+11$ é o termo devido às condições iniciais, portanto, o primeiro termo do lado direito da equação acima, é a resposta de estado nulo do sistema, enquanto que o segundo termo é a resposta de entrada nula. A transformada inversa leva a resposta no domínio do tempo.</p>
-<p>Voltando ao exemplo, $Q(s)=(s+2)(s+3)$, substituindo na equação acima resulta em</p>
+$$Y(s)=\frac{P(s)}{Q(s)}X(s)+\frac{2s+11}{Q(s)}.$$<p>$2s+11$ é o termo devido às condições iniciais, portanto, o primeiro termo do lado direito da equação acima é a resposta de estado nulo do sistema, quando o sistema está relaxado (basta anular o segundo termo) enquanto que o segundo termo é a resposta de entrada nula (fazendo $X(s)=0$). Por superposição, a transformada inversa leva a resposta total no domínio do tempo.</p>
+<p>Voltando ao exemplo, $Q(s)=(s+2)(s+3)$, substituindo $Q(s)\,e X(s)$ na equação acima resulta em</p>
 $$Y(s)=\frac{s+1}{(s+2)(s+3)}\frac{1}{(s+4)}+\frac{2s+11}{(s+2)(s+3)},$$$$Y(s)=\frac{2s^2+20s+45}{(s+2)(s+3)(s+4)}=\frac{A_1}{s+2}+\frac{A_2}{s+3}+\frac{A_3}{s+4},$$<p>de onde determinamos que $A_1=\frac{13}{2}$, $A_2=-3$ e $A_3=\frac{-3}{2}$. A resposta no domínio de Laplace é</p>
-$$Y(s)=\frac{13}{2}\frac{1}{s+2}+\frac{-3}{s+3}+\frac{-3}{2}\frac{1}{s+4}.$$<p>A respopsta no domínio do tempo é encontrada com as transformadas inversas dos termos do lado direito.</p>
-$$y(t)=\left(\frac{13}{2}e^{-2t}-3e^{-3t}-\frac{-3}{2}e^{-4t}\right)u(t).$$
+$$Y(s)=\frac{13}{2}\frac{1}{s+2}-\frac{3}{s+3}-\frac{3}{2}\frac{1}{s+4}.$$<p>A resposta no domínio do tempo é encontrada com as transformadas inversas dos termos do lado direito.</p>
+$$y(t)=\left(\frac{13}{2}e^{-2t}-3e^{-3t}-\frac{3}{2}e^{-4t}\right)u(t).$$
 </div>
 </div>
 </div>
