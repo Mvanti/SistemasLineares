@@ -1,8 +1,0 @@
-dependencies:
-  - python>3.10
-  - sympy
-  - numpy
-  - pandas
-  - lcapy
-  - notebook
-  - matplotlib
