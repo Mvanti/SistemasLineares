@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usetikzlibrary{patterns}
+\usepackage{subfig}
+\usepackage{caption}
+\begin{document}
+
+
+\begin{figure}[!h]
+	\centering
+	\begin{circuitikz}[scale=1.5]
+		%plano inferior
+		\pattern[pattern = north east lines] (0,0) rectangle (5,.25);
+		\draw [thick](0,.25) -- (5,.25);
+		%plano esquerdo
+		\pattern[pattern = north east lines] (-0.25,2) rectangle (0,0.25);
+		\draw [thick](0,2) -- (0,.25);
+		%mola
+		\draw (0,1) to[spring,l=$k$](2,1);
+		%massa
+		\draw [fill=gray!50](2,.3) rectangle (3.3,1.6);
+		\node at (3.4,0.5) [right] {$\gamma$};
+		\node at (2.65,0.9){$M$};
+		% setas
+		\draw [-stealth] (3.3,0.9) -- node [above right] {$x(t)=F(t)$} + (1,0);
+		\draw [-stealth] (3.3,-0.3) -- node [below] {$y(t)$} + (1,0);						
+	\end{circuitikz}
+\end{figure}
+	
+\end{document}
