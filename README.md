@@ -1,9 +1,9 @@
 # SistemasLineares
-Conjunto de notas com o apoio da biblioteca Lcapy
+Conjunto de notas com o apoio da biblioteca Lcapy e do simulador LTspice.
 
 Estas notas foram escritas com base no curso que leciono ao curso de Engenharia Elétrica  na Universidade Regional de Blumenau-Santa Catarina-Brasil. 
 
-Neste material a biblioteca Lcapy[1] (https://lcapy.readthedocs.io/en/latest/)  e o ecossistema Python são utilizados para simulação dos fenômenos pertinentes a teoria de sistemas lineares. 
+Neste material a biblioteca Lcapy[1] (https://lcapy.readthedocs.io/en/latest/), o ecossistema Python e o simulador de circuitos LTspice (https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html) são utilizados para simulação dos fenômenos pertinentes a teoria de sistemas lineares. 
 Os notebooks Jupyter (https://jupyter.org/) podem ser renderizados aqui ou em nbviewer.org (https://nbviewer.org/). Para cada tema, há um notebook *.ipynb e uma versão *.pdf. 
 Para executar em seu próprio computador, um sistema python científico deve ser instalado. Normalmente numpy, sympy, matplotlib, pandas, etc já vem previamente instalados nesses sistemas. Recomendo o uso de WinPython (https://winpython.github.io/). Uma outra alternativa é a distribuição Anaconda (https://anaconda.org), a qual simplifica bastante a instalação e gerenciamento de pacotes e bibliotecas. Para renderização das equações utilizadas no texto, o computador necessitará ter LateX instalado. MiKTeX  (https://miktex.org/) é uma distribuição que funciona muito bem em Windows e fará a renderização das equações de forma transparente.
 
